@@ -1,1 +1,1 @@
-"# second_brain_app" 
+# Second Brain App
