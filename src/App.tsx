@@ -7,14 +7,14 @@ function App() {
     <div className="flex place-content-center items-center h-screen">
       <Button
         innertext="Share Brain"
-        startIcon={<ShareIcon iconSize='w-5 h-5'/>}
+        startIcon={<ShareIcon className={'w-4 h-4'}/>}
         textColor="text-primary"
         backgroundColor="bg-secondary"
       />
       &nbsp;&nbsp;
       <Button
         innertext="Add Content"
-        startIcon={<PlusIcon iconSize='w-5 h-5'/>}
+        startIcon={<PlusIcon className={'w-4 h-4'}/>}
         textColor="text-secondary"
         backgroundColor="bg-primary"
       />
