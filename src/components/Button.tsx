@@ -19,9 +19,9 @@ export function Button(props: buttonProperties) {
 
     const iconCSS = `
             flex items-center justify-center
-            w-5 h-5
+            w-4 h-4
             sm:w-5 sm:h-5
-            md:w-6 md:h-6
+            md:w-5 md:h-5
             lg:w-6 lg:h-6
             xl:w-6 xl:h-6
             2xl:w-8 2xl:h-8`
