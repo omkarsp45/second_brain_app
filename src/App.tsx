@@ -1,16 +1,25 @@
-import './App.css'
-import { Button } from './components/Button'
-import { PlusIcon } from './assets/icons/PlusIcon'
-import { ShareIcon } from './assets/icons/ShareIcon'
+import './App.css';
+import { Button } from './components/Button';
+import { PlusIcon, ShareIcon } from './assets/icons/Icons';
 
 function App() {
   return (
-    <div className='flex place-content-center items-center h-screen'>
-      <Button innertext={"Share Brain"} startIcon={<ShareIcon />} textColor={"text-primary"} backgroundColor={"bg-secondary"} textsize={"text-xl"} paddingx={"px-4"} paddingy={"py-2"} borderRadius={"rounded-lg"} />
-      <Button innertext={"Add Content"} startIcon={<PlusIcon />} textColor={"text-secondary"} backgroundColor={"bg-primary"} textsize={"text-xl"} paddingx={"px-4"} paddingy={"py-2"} borderRadius={"rounded-lg"} />
+    <div className="flex place-content-center items-center h-screen">
+      <Button
+        innertext="Share Brain"
+        startIcon={<ShareIcon iconSize='w-5 h-5'/>}
+        textColor="text-primary"
+        backgroundColor="bg-secondary"
+      />
+      &nbsp;&nbsp;
+      <Button
+        innertext="Add Content"
+        startIcon={<PlusIcon iconSize='w-5 h-5'/>}
+        textColor="text-secondary"
+        backgroundColor="bg-primary"
+      />
     </div>
-  )
+  );
 }
 
-export default App
-
+export default App;
