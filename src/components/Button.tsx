@@ -6,21 +6,26 @@ type buttonProperties = {
     innertext: string,
     textColor: string,
     backgroundColor: string,
+    sidebar?: boolean
 }
 
 export function Button(props: buttonProperties) {
-    const buttonCSS = `
-            flex items-center text-xs px-2 py-1 rounded-sm w-auto h-auto
+    let buttonCSS = `
+            flex items-center text-xs px-2 py-1 rounded-sm w-auto
             sm:text-sm sm:px-3 sm:py-1.5 sm:rounded
             md:text-base md:px-4 md:py-2 md:rounded-md 
             lg:text-lg lg:px-4 lg:py-2 lg:rounded-lg
             xl:text-xl xl:px-4.5 xl:py-2.5 xl:rounded-xl
             2xl:text-xl 2xl:px-5 2xl:py-3 2xl:rounded-xl`
 
-    const iconCSS = `
+    let iconCSS = `
             flex items-center justify-center
             w-4 aspect-square
             sm:w-5 md:w-5 lg:w-6 xl:w-6 2xl:w-8`
+
+    if(props.sidebar) {
+        buttonCSS += ` h-6 sm:8 md:h-8 lg:h-10 xl:h-12 2xl:h-14`
+    } else buttonCSS += ` h-auto`
 
     return (
         <>
@@ -32,3 +37,4 @@ export function Button(props: buttonProperties) {
         </>
     )
 }
+
