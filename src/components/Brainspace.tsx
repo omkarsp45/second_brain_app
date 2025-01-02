@@ -1,20 +1,31 @@
 import { useState, useEffect } from "react";
 import { Button } from "./Button";
+import axios from "axios";
 import { ShareIcon, PlusIcon } from "../assets/icons/Icons";
 import { Card } from "./Card";
 import { CreateContentModal } from "./CreateContentModal"
-import { useContent } from "../hooks/useContent"
+import { BackendUrl } from "../../constants";
 
 export function Brainspace() {
     const [modalOpen, setModalOpen] = useState(false);
     const textSize = "text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl";
-    const { contents, refresh } = useContent();
+    const [content, setContent] = useState([]);
+
     useEffect(() => {
-        refresh();
-    }, [modalOpen])
+        async function fetchContent() {
+            const response = await axios.get(`${BackendUrl}/api/v1/content`, {
+                headers: {
+                    token: localStorage.getItem("token"),
+                },
+            });
+            console.log(response);
+            setContent(response.data.data);
+        }
+        fetchContent();
+    }, []);
 
     return (
-        <div className="flex flex-col flex-1 bg-card-space text-dark-gray p-6 space-y-4">
+        <div className="flex flex-col flex-1 text-dark-gray p-6 space-y-4">
             <CreateContentModal open={modalOpen} onClose={() => {
                 setModalOpen(false);
             }} />
@@ -41,7 +52,8 @@ export function Brainspace() {
             </div>
 
             <div className="gap-4 p-4 space-y-4 columns-1 sm:columns-2 md:columns-3 lg:columns-3">
-                {contents.map(({ type, link, title }) => <Card
+                
+                {content && content.map(({ type, link, title }) => <Card
                     type={type}
                     link={link}
                     title={title}

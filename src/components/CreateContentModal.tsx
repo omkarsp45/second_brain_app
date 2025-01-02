@@ -28,7 +28,7 @@ export function CreateContentModal({ open, onClose }: CreateContentModalProps) {
                 { title, link, type },
                 {
                     headers: {
-                        Authorization: localStorage.getItem("token") || "",
+                        token: localStorage.getItem("token") || "",
                     }
                 }
             );
@@ -42,13 +42,11 @@ export function CreateContentModal({ open, onClose }: CreateContentModalProps) {
 
     return (
         <div className="fixed inset-0 z-50 flex items-center justify-center">
-            {/* Backdrop */}
             <div
                 className="fixed inset-0 bg-slate-500 opacity-60"
                 onClick={onClose}
             ></div>
 
-            {/* Modal Content */}
             <div className="relative bg-white rounded-lg p-6 shadow-lg z-10 w-96">
                 <div className="flex justify-between items-center mb-4">
                     <h2 className="text-lg font-semibold">Add Content</h2>
@@ -62,7 +60,6 @@ export function CreateContentModal({ open, onClose }: CreateContentModalProps) {
                 </div>
 
                 <div className="flex flex-col gap-3">
-                    {/* Title Input */}
                     <input
                         ref={titleRef}
                         placeholder="Title"
@@ -70,7 +67,6 @@ export function CreateContentModal({ open, onClose }: CreateContentModalProps) {
                         className="w-full px-4 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-primary"
                     />
 
-                    {/* Link Input */}
                     <input
                         ref={linkRef}
                         placeholder="Link"
@@ -78,10 +74,9 @@ export function CreateContentModal({ open, onClose }: CreateContentModalProps) {
                         className="w-full px-4 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-primary"
                     />
 
-                    {/* Type Selection */}
                     <div>
                         <h3 className="mb-2">Type</h3>
-                        <div className="flex gap-2">
+                        <div className="flex gap-2 justify-evenly">
                             <Button
                                 innertext="Youtube"
                                 backgroundColor={type === ContentType.Youtube ? "bg-primary" : "bg-secondary"}
@@ -98,7 +93,6 @@ export function CreateContentModal({ open, onClose }: CreateContentModalProps) {
                     </div>
                 </div>
 
-                {/* Submit Button */}
                 <div className="mt-4 flex justify-center">
                     <Button
                         onClick={addContent}
