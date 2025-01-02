@@ -7,6 +7,7 @@ type buttonProperties = {
     textColor: string,
     backgroundColor: string,
     sidebar?: boolean
+    onClick?: () => void
 }
 
 export function Button(props: buttonProperties) {
@@ -29,7 +30,7 @@ export function Button(props: buttonProperties) {
 
     return (
         <>
-            <button className={`${buttonCSS} ${props.textColor} ${props.backgroundColor}`}>
+            <button onClick={props.onClick} className={`${buttonCSS} ${props.textColor} ${props.backgroundColor}`}>
                 {props.startIcon && React.cloneElement(props.startIcon, { className: `${iconCSS}` })}
                 {props.startIcon && <span>&nbsp;&nbsp;</span>}
                 {props.innertext}
