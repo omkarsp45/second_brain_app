@@ -46,7 +46,6 @@ export function CreateContentModal({ open, onClose }: CreateContentModalProps) {
                 className="fixed inset-0 bg-slate-500 opacity-60"
                 onClick={onClose}
             ></div>
-
             <div className="relative bg-white rounded-lg p-6 shadow-lg z-10 w-96">
                 <div className="flex justify-between items-center mb-4">
                     <h2 className="text-lg font-semibold">Add Content</h2>

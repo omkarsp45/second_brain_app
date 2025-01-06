@@ -13,12 +13,14 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
+        <Route path='/hello' element={ <div>Randachya</div>}/>
+        <Route path="/share/:hash" element={ <Dashboard share={true}/>}/>
         <Route path="/auth" element={<Auth />} />
         <Route
-          path="/dashboard"
+          path="/*"
           element={
             <PrivateRoute>
-              <Dashboard />
+              <Dashboard share={false}/>
             </PrivateRoute>
           }
         />

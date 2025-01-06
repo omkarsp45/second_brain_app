@@ -1,8 +1,9 @@
 import { useEffect } from "react";
+import axios from "axios";
 import { ShareIcon } from "../assets/icons/Icons"
+import { DeleteIcon } from "../assets/icons/Icons"
 
-export function Card(props: { title: string, link: string, type: string }) {
-
+export function Card(props: { title: string, link: string, type: string, _id: any }) {
     useEffect(() => {
         if (props.type === "twitter") {
             const script = document.createElement("script");
@@ -22,9 +23,24 @@ export function Card(props: { title: string, link: string, type: string }) {
         return match && match[2].length === 11 ? match[2] : null;
     };
     const videoId = props.type === "youtube" ? getYouTubeId(props.link) : null;
+    async function deleteContent() {
+        try {
+            await axios.delete("http://localhost:3000/api/v1/content", {
+                headers: {
+                    token: localStorage.getItem("token") || "",
+                },
+                data: {
+                    contentId: props._id,
+                }
+            });
+
+        } catch (error) {
+            console.error("Error deleting content:", error);
+        }
+    }
 
     return (
-        <div className="p-2 bg-white rounded-md border-gray-200 w-72 border max-h-fit break-inside-avoid">
+        <div className="p-2 bg-white rounded-md border-gray-200 w-92 border max-h-fit break-inside-avoid">
             <div className="flex justify-between">
                 <div className="flex items-center text-md">
                     <div className="text-gray-500 pr-2">
@@ -38,8 +54,8 @@ export function Card(props: { title: string, link: string, type: string }) {
                             <ShareIcon className="w-2" />
                         </a>
                     </div>
-                    <div className="text-gray-500">
-                        <ShareIcon className="w-2" />
+                    <div className="text-gray-500 cursor-pointer" onClick={deleteContent}>
+                        <DeleteIcon />
                     </div>
                 </div>
             </div>
@@ -57,13 +73,10 @@ export function Card(props: { title: string, link: string, type: string }) {
                 )}
 
                 {props.type === "twitter" && (
-                    <div>
-                        <blockquote className="twitter-tweet">
-                            <a href={props.link.replace("x.com", "twitter.com")}>
-                                View Tweet
-                            </a>
+                    <div className="w-full overflow-hidden">
+                        <blockquote className="twitter-tweet" style={{ maxWidth: "100%" }}>
+                            <a href={props.link.replace("x.com", "twitter.com")}>View Tweet</a>
                         </blockquote>
-                        <script async src="https://platform.twitter.com/widgets.js"></script>
                     </div>
                 )}
             </div>
