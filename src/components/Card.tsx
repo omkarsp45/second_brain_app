@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import axios from "axios";
-import { BrandIcon, YoutubeIcon, TwitterIcon, ShareIcon, DeleteIcon } from "../assets/icons/Icons";
+import { YoutubeIcon, TwitterIcon, ShareIcon, DeleteIcon } from "../assets/icons/Icons";
 
 export function Card(props: { title: string, link: string, type: string, _id: any }) {
     useEffect(() => {
