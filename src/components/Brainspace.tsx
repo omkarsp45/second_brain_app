@@ -11,18 +11,15 @@ import { BackendUrl } from "../../constants";
 export function Brainspace(props) {
     const [modalOpen, setModalOpen] = useState(false);
     const [shareWindowOpen, setShareWindowOpen] = useState(false);
-    const textSize = "text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl";
+    const textSize = "text-lg lg:text-xl xl:text-2xl 2xl:text-3xl";
     const [content, setContent] = useState([]);
     const { hash } = useParams<{ hash: string }>();
 
     useEffect(() => {
         async function fetchContent() {
             if (props.share) {
-                console.log('1');
                 const response = await axios.get(`${BackendUrl}/api/v1/brain/${hash}`);
-                console.log('2');
                 setContent(response.data.data);
-                console.log('3');
             } else {
                 const response = await axios.get(`${BackendUrl}/api/v1/content`, {
                     headers: {
@@ -41,7 +38,7 @@ export function Brainspace(props) {
     }, []);
 
     return (
-        <div className="flex flex-col flex-1 text-dark-gray p-6 space-y-4">
+        <div className="flex flex-col flex-1 text-dark-gray px-5 py-1 md:px-6 md:py-6 space-y-4">
             <CreateContentModal open={modalOpen} onClose={() => {
                 setModalOpen(false);
             }} />

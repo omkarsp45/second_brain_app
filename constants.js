@@ -1,1 +1,1 @@
-export const BackendUrl = 'http://locahost:3000';
+export const BackendUrl = 'http://192.168.29.4:3000';  

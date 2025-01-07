@@ -113,17 +113,16 @@ export function ShareWindow({ open, onClose }: ShareWindowProps) {
                     />
                 </div>
 
-                <div className="mt-4 flex justify-center">
-                    <label className="relative flex items-center cursor-pointer">
-                        <span className="ml-3 text-sm font-medium text-gray-600">Shareable</span>
-                        <input
-                            type="checkbox"
-                            checked={isShareable}
-                            onChange={toggleShareable}
-                            className="sr-only peer"
-                        />
-                        <div className="w-14 h-7 bg-gray-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-[4px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-6 after:w-6 after:transition-all peer-checked:bg-indigo-600 hover:peer-checked:bg-indigo-700"></div>
+                <div className="mt-4 flex items-center justify-start gap-4">
+                    <label className="ml-2 text-sm font-medium text-gray-600">
+                        Shareable
                     </label>
+                    <input
+                        type="checkbox"
+                        checked={isShareable}
+                        onChange={toggleShareable}
+                        className="w-4 h-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500"
+                    />
                 </div>
             </div>
         </div>

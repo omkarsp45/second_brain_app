@@ -1,7 +1,6 @@
 import { useEffect } from "react";
 import axios from "axios";
-import { ShareIcon } from "../assets/icons/Icons"
-import { DeleteIcon } from "../assets/icons/Icons"
+import { BrandIcon, YoutubeIcon, TwitterIcon, ShareIcon, DeleteIcon } from "../assets/icons/Icons";
 
 export function Card(props: { title: string, link: string, type: string, _id: any }) {
     useEffect(() => {
@@ -44,14 +43,14 @@ export function Card(props: { title: string, link: string, type: string, _id: an
             <div className="flex justify-between">
                 <div className="flex items-center text-md">
                     <div className="text-gray-500 pr-2">
-                        <ShareIcon className="w-2" />
+                        {props.type==='youtube' ? <YoutubeIcon className="w-5 h-5"/> : <TwitterIcon className="w-5 h-5"/>}
                     </div>
                     {props.title}
                 </div>
                 <div className="flex items-center">
                     <div className="pr-2 text-gray-500">
                         <a href={props.link} target="_blank">
-                            <ShareIcon className="w-2" />
+                            <ShareIcon className="w-5" />
                         </a>
                     </div>
                     <div className="text-gray-500 cursor-pointer" onClick={deleteContent}>

@@ -11,13 +11,12 @@ type buttonProperties = {
 
 export function Button(props: buttonProperties) {
     let buttonCSS = `
-            flex items-center text-center text-xs px-2 py-1 rounded-sm transition duration-400 ease-in-out
-            sm:text-xs sm:px-3 sm:py-1.5 sm:rounded
-            md:text-sm md:px-4 md:py-2 md:rounded-md 
+            flex items-center text-center transition duration-400 ease-in-out
+            text-sm px-4 py-2 rounded-md 
             lg:text-base lg:px-4 lg:py-2 lg:rounded-lg 
             xl:text-lg xl:px-4.5 xl:py-2.5 xl:rounded-xl
             2xl:text-xl 2xl:px-5 2xl:py-3 2xl:rounded-xl
-            h-6 sm:8 md:h-8 lg:h-10 xl:h-12 2xl:h-14` 
+            h-8 lg:h-10 xl:h-12 2xl:h-14` 
 
     let iconCSS = `
             flex items-center justify-center

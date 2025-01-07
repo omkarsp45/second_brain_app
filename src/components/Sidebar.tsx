@@ -18,8 +18,8 @@ export function Sidebar() {
 
     return (
         <div className={`${sidebarCSS} justify-between`}>
-            <div className="flex flex-col w-full space-y-6 ">
-                <div className={`flex flex-row items-center h-24 ${textSize} font-bold text-zinc-700 `}>
+            <div className="flex flex-col w-full space-y-2">
+                <div className={`invisible h-8 md:visible flex flex-row items-center md:h-24 ${textSize} font-bold text-zinc-700`}>
                     <BrandIcon className={`aspect-square ${brandIconSize} mr-2 sm:mr-3 md:mr-4 lg:mr-5 xl:mr-6 2xl:mr-7`} />
                     <span className="ml-2">Second Brain</span>
                 </div>
