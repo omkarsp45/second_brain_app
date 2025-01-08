@@ -6,7 +6,7 @@ export function Sidebar({ setType }) {
     const navigate = useNavigate();
     const sidebarCSS = `
         flex flex-col h-screen bg-sidebar-background border-border border-x-2 items-center
-        w-44 md:w-44 lg:w-52 xl:w-72 2xl:w-80 fixed top-0 left-0 p-4`;
+        w-36 md:w-44 lg:w-52 xl:w-72 2xl:w-80 fixed top-0 left-0 p-4`;
 
     const textSize = "text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl";
     const brandIconSize = "w-4 sm:w-6 md:w-8 lg:w-10 xl:w-10 2xl:w-12";
