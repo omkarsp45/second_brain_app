@@ -16,7 +16,7 @@ export function Button(props: buttonProperties) {
             lg:text-base lg:px-4 lg:py-2 lg:rounded-lg 
             xl:text-lg xl:px-4.5 xl:py-2.5 xl:rounded-xl
             2xl:text-xl 2xl:px-5 2xl:py-3 2xl:rounded-xl
-            h-8 lg:h-10 xl:h-12 2xl:h-14` 
+            h-10 2xl:h-12` 
 
     let iconCSS = `
             flex items-center justify-center
