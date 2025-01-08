@@ -18,7 +18,7 @@ export function Dashboard(props) {
         className={`fixed inset-y-0 left-0 z-50 transform bg-white shadow-lg transition-transform duration-500 ease-in-out md:relative md:translate-x-0 ${isSidebarOpen ? 'translate-x-0' : '-translate-x-40'
           }`}
       >
-        <Sidebar setType={setType} type={type} />
+        <Sidebar setType={setType} />
       </div>
       {isSidebarOpen && (
         <div

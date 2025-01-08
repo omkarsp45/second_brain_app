@@ -2,7 +2,7 @@ import { BrandIcon, YoutubeIcon, TwitterIcon } from "../assets/icons/Icons";
 import { Button } from "./Button";
 import { useNavigate } from "react-router-dom";
 
-export function Sidebar({ type, setType }) {
+export function Sidebar({ setType }) {
     const navigate = useNavigate();
     const sidebarCSS = `
         flex flex-col h-screen bg-sidebar-background border-border border-x-2 items-center
